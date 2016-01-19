@@ -1,0 +1,28 @@
+<div data-ng-controller="projectCtrl as p">
+  <h1>Manage Projects</h1>
+  <div data-ng-repeat="project in p.projects | orderBy:'title' track by $index" class="panel panel-default">
+    <div class="panel-heading heading">
+      <div class="pull-left" role="group" aria-label="Project options">
+        <a data-ng-class="p.isSelected(project)?'fa fa-circle':'fa fa-circle-o'"
+           title="Anchor project" data-ng-click="p.setAsSelected(project)"></a>
+        <a data-ng-class="p.isFavourite(project)?'fa fa-bookmark':'fa fa-bookmark-o'"
+           title="Add/Remove project as favourite" data-ng-click="p.toggleFavourite(project)"></a>
+      </div>
+      <div class="btn-group pull-right" role="group" aria-label="Project options">
+        <button class="btn btn-default btn-xs" title="Amend this project" data-ng-click="p.edit(project)">
+          Amend&nbsp;<i class="fa fa-pencil"></i>
+        </button>
+      </div>
+      <span>[{{project.projectCode}} : {{project.title}}]&nbsp;</span>
+      <span title="Owner of this project">Owner: {{p.project.owner.email}}</span>
+    </div>
+    <div class="panel-body">
+      <p>Client: {{project.client == null ? "N/A" : project.client}}</p>
+      <p>Summary: {{project.summary}}</p>
+    </div>
+  </div>
+  <div data-ng-show="p.waiting" class="alert alert-info"><i class="fa fa-spinner fa spin"></i>&nbsp;Loading</div>
+  <div data-ng-show="p.projects.length==0 && !p.waiting" class="alert alert-info"><i class="fa fa-info-circle"></i>&nbsp;You
+    do not have any projects
+  </div>
+</div>

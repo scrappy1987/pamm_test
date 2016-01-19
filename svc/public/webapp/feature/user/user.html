@@ -1,0 +1,34 @@
+<div class="container" data-ng-controller="userCtrl as u">
+  <header class="row">
+    <div class="app-logo pull-left"></div>
+    <div class="app-bar pull-right">
+      <span class="hidden-xs"><i class="fa fa-user"></i>{{u.user.forename}} {{u.user.surname}}&nbsp;|</span>
+      <a class="hidden-xs" data-ng-click="u.logout()" title="Logout of the application"><i class="fa fa-power-off"></i>Sign Out</a>
+      <a class="hidden-xs"><i class="fa fa-question"></i>Help</a>
+      <a class="hidden-xs" data-ng-click="u.showAbout()"><i class="fa fa-info"></i>About</a>
+    </div>
+
+    <nav>
+      <ul class="nav nav-tabs">
+        <li data-ng-class="{'active': u.isAtHome()}">
+          <a data-ng-click="u.navigateToHome()"><i class="fa fa-home"></i>&nbsp;Home</a>
+        </li>
+        <li data-ng-class="{'active': u.isAtProjects()}"><a data-ng-click="u.navigateToProjects()">Projects</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="row">
+    <aside class="col-md-3 col-sm-4">
+      <div class="selected-project" data-ng-show="u.getSelectedProject() == undefined"><i class="icon pin-off medium"></i>No Selected Project</div>
+      <div class="selected-project" data-ng-show="u.getSelectedProject() != undefined"><i class="icon pin-on medium"></i>
+        {{u.getSelectedProject().title}}
+      </div>
+      <div data-ui-view="sidebar-menu"></div>
+      <div data-ui-view="sidebar-panel">
+        <div data-ng-include="'component/favourite-panel/favourite-panel.html'"></div>
+      </div>
+    </aside>
+    <main data-ui-view="feature" class="col-md-9 col-sm-8 col-xs-12 container"></main>
+  </div>
+</div>

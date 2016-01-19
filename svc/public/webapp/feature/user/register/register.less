@@ -1,0 +1,45 @@
+@image-path: "../../../resource/image";
+@import "../../../resource/colour.less";
+
+[data-ng-controller~="userRegisterCtrl"] {
+  height: 100%;
+  overflow: auto;
+
+  .logo {
+    height: 85px;
+    margin: 0 0 10px 5px;
+    background: url("@{image-path}/text-logo.png") no-repeat 0 center;
+    background-size: 143px 70px;
+  }
+
+  .container {
+    // vertical centre
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  // Make FA iocns the same width
+  .fa {
+    width: 16px;
+  }
+
+  .link {
+    text-decoration: underline;
+  }
+
+  form {
+    padding: 10px 20px 20px 20px;
+    border-radius: 5px;
+    border: 1px solid gray;
+    box-shadow: 7px 7px 5px 0 rgba(30, 30, 50, 0.6);
+
+    .input-group {
+      margin-top: 10px;
+    }
+  }
+
+  footer {
+    margin-top: 10px;
+  }
+}

@@ -1,0 +1,62 @@
+@image-path: "../../../resource/image";
+@import "../../../resource/colour.less";
+
+[data-ng-controller~="projectCtrl"] {
+  * {
+    vertical-align: middle;
+  }
+
+  .panel-heading {
+    color: #204d74;
+    font-weight: bold;
+    font-size: 10pt;
+    padding: 10px;
+
+    * {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .pull-left {
+      margin-left: 0;
+      margin-right: 10px;
+    }
+
+    .pull-right {
+      margin-right: 0;
+      margin-left: 10px;
+    }
+
+    .owner {
+      font-weight: normal;
+      font-size: 9pt;
+      margin: 0 5px 0 5px;
+      padding-top: 3px !important;
+    }
+  }
+
+  .panel-body {
+    font-size: 9pt;
+    padding: 5px;
+  }
+
+  .panel {
+    margin: 0 0 3px 0;
+  }
+}
+
+form[name="projectForm"] {
+  .list-group-item {
+    padding: 5px 10px 5px 10px;
+    font-size: 9pt;
+
+    .pull-right {
+      margin-left: 10px;
+    }
+  }
+
+  .icon.add.small {
+    margin-left: -4px;
+    margin-right: 5px;
+  }
+}

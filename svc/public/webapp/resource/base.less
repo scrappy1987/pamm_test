@@ -1,0 +1,67 @@
+@image-path: "image";
+@import "colour";
+
+html, body {
+  height: 100%;
+}
+
+label {
+  font-size: small;
+
+  &.required:after {
+    content: " *" !important;
+    color: red;
+  }
+}
+
+/** "text" links e.g. <span class="link">*/
+.link {
+  cursor: pointer;
+  color: #3276b1;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+a {
+  cursor: pointer;
+}
+
+[data-ng-message] {
+  color: darkred;
+  font-size: 9pt !important;
+  font-weight: bold;
+  margin: 2px 3px 2px 3px;
+}
+
+/** Override Bootstrap defaults */
+.btn-cancel {
+  background-color: lightgray;
+}
+
+.nav-tabs {
+  a {
+    cursor: pointer;
+  }
+
+  .active a {
+    font-weight: bold;
+  }
+}
+
+/* White modal background instead of black */
+.modal-backdrop {
+  background: white;
+}
+
+/* Bootstrap dialog message */
+.bootstrap-dialog-message {
+  * {
+    vertical-align: middle;
+  }
+
+  i {
+    margin-right: 15px
+  }
+}

@@ -1,0 +1,35 @@
+@image-path: "../../../resource/image";
+
+[data-ng-controller~="termsOfUseCtrl"] {
+  height: 100%;
+  overflow: auto;
+
+  .logo {
+    height: 85px;
+    margin: 0 0 10px 5px;
+    background: url("@{image-path}/text-logo.png") no-repeat 0 center;
+    background-size: 143px 70px;
+  }
+
+  .container {
+    @media (min-height: 910px) {
+      // vertical centre
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    @media (max-height: 909px) {
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+  }
+
+  .content {
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid gray;
+    box-shadow: 7px 7px 5px 0 rgba(30, 30, 50, 0.5);
+    font-size: 11pt;
+  }
+}

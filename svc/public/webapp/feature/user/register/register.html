@@ -1,0 +1,102 @@
+<main data-ng-controller="userRegisterCtrl as registration" data-ng-cloak>
+  <div class="container">
+    <form name="registerForm" data-ng-submit="registration.register(registerForm)" method="post" novalidate
+          class="col-md-offset-3 col-md-6 col-sm-offset-1 col-sm-10 col-xs-offset-0 col-xs-12">
+      <div class="logo"><span class="sr-only">Logo</span></div>
+      <div class="input-group">
+        <label class="sr-only" for="email">EMail</label>
+        <span class="input-group-addon"><i class="fa fa-envelope">*</i></span>
+        <input class="form-control" type="email" data-ng-model="registration.details.email" id="email" name="email"
+               placeholder="Your Email.  This will be your log in username" required data-lowercase autofocus>
+      </div>
+      <div data-ng-messages="registerForm.email.$error" data-ng-if="registerForm.$submitted" role="alert">
+        <div data-ng-message="required">Please enter your EMail</div>
+        <div data-ng-message="email">Please correct the entered email</div>
+      </div>
+
+      <div class="input-group">
+        <label class="sr-only" for="email">Confirm EMail</label>
+        <span class="input-group-addon"><i class="fa fa-envelope">*</i></span>
+        <input class="form-control" type="email" data-ng-model="registration.confirm.email" id="emailConfirm"
+               name="emailConfirm" placeholder="Retype the email to confirm" data-match="registration.details.email"
+               data-lowercase required>
+      </div>
+      <div data-ng-messages="registerForm.emailConfirm.$error"
+           data-ng-if="registerForm.$submitted && registerForm.email.$touched" role="alert">
+        <div data-ng-message="required">Please confirm your email</div>
+        <div data-ng-message="match">The entered Emails do not match</div>
+      </div>
+
+      <div class="input-group">
+        <label class="sr-only" for="password">Password</label>
+        <span class="input-group-addon"><i class="fa fa-key">*</i></span>
+        <input class="form-control" type="password" data-ng-model="registration.details.password" id="password"
+               name="password" placeholder="Password" required>
+      </div>
+      <div data-ng-messages="registerForm.password.$error" data-ng-if="registerForm.$submitted" role="alert">
+        <div data-ng-message="required">Please choose a Password</div>
+        <div data-ng-message="password">Please correct the entered password</div>
+      </div>
+
+      <div class="input-group">
+        <label class="sr-only" for="password">Confirm Password</label>
+        <span class="input-group-addon"><i class="fa fa-key">*</i></span>
+        <input class="form-control" type="password" data-ng-model="registration.confirm.password"
+               id="passwordConfirm" name="passwordConfirm" placeholder="Retype the password to confirm"
+               data-match="registration.details.password" required>
+      </div>
+      <div data-ng-messages="registerForm.passwordConfirm.$error"
+           data-ng-if="registerForm.$submitted && registerForm.password.$touched" role="alert">
+        <div data-ng-message="required">Please confirm your password</div>
+        <div data-ng-message="match">The entered Passwords do not match</div>
+      </div>
+
+      <div class="input-group">
+        <label class="sr-only" for="forename">Your Forename</label>
+        <span class="input-group-addon"><i class="fa fa-user">*</i></span>
+        <input class="form-control" type="text" id="forename" name="forename"
+               data-ng-model="registration.details.forename" placeholder="First Name" required>
+      </div>
+      <div data-ng-messages="registerForm.forename.$error" data-ng-if="registerForm.$submitted" role="alert">
+        <div data-ng-message="required">Please enter your Forename</div>
+      </div>
+
+      <div class="input-group">
+        <label class="sr-only" for="surname">Your Surname</label>
+        <span class="input-group-addon"><i class="fa fa-user">*</i></span>
+        <input class="form-control" type="text" data-ng-model="registration.details.surname" id="surname"
+               name="surname" placeholder="Surname" required>
+      </div>
+      <div data-ng-messages="registerForm.surname.$error" data-ng-if="registerForm.$submitted" role="alert">
+        <div data-ng-message="required">Please enter your surname</div>
+      </div>
+
+      <div class="input-group">
+        <label class="sr-only" for="phone">Telephone/Mobile</label>
+        <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+        <input class="form-control" type="text" data-ng-model="registration.details.phone" id="phone"
+               name="phone" placeholder="Your phone or mobile number" data-ng-pattern="register.$$dataType.NUMBER">
+      </div>
+      <div data-ng-messages="registerForm.phone.$error" data-ng-if="registerForm.$submitted" role="alert">
+        <div data-ng-message="pattern">Please correct the entered Phone Number</div>
+      </div>
+
+      <footer>
+        <div class="pull-left">
+          <div>
+            <input type="checkbox" data-ng-model="register.termsofuse" name="termsofuse" required/>
+            * I have read and agree to the
+            <a class="link" data-ng-click="registration.showTermsOfUse()">Terms of Use</a>
+          </div>
+          <div data-ng-messages="registerForm.termsofuse.$error" data-ng-if="registerForm.$submitted">
+            <div data-ng-message="required">You must agree to the Terms and Conditions in order to continue</div>
+          </div>
+        </div>
+        <div class="pull-right">
+          <button type="button" data-ng-click="registration.cancel()" class="btn btn-cancel">CANCEL</button>
+          <button type="submit" class="btn btn-primary">REGISTER</button>
+        </div>
+      </footer>
+    </form>
+  </div>
+</main>

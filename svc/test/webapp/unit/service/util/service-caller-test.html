@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>feature:login test</title>
+
+    <base href="../../../../../">
+
+    <!--main libraries-->
+    <script src="public/webapp/lib/lodash/lodash.min.js"></script>
+    <script src="public/webapp/lib/jquery/jquery-2.1.4.min.js"></script>
+    <script src="public/webapp/lib/angular-1.4.4/angular.min.js"></script>
+    <script src="public/webapp/lib/ui-router/angular-ui-router.js"></script>
+    <script src="public/webapp/lib/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <script src="public/webapp/lib/bootstrap3-dialog/js/bootstrap-dialog.min.js"></script>
+
+
+    <!-- Test Libraries (note angular-mocks.js needs to be loaded after real angular) -->
+    <link rel="shortcut icon" type="image/png" href="test/webapp/unit/lib/jasmine-2.3.4/jasmine_favicon.png">
+    <link rel="stylesheet" type="text/css" href="test/webapp/unit/lib/jasmine-2.3.4/jasmine.css">
+    <script src="test/webapp/unit/lib/jasmine-2.3.4/jasmine.js"></script>
+    <script src="test/webapp/unit/lib/jasmine-2.3.4/jasmine-html.js"></script>
+    <script src="test/webapp/unit/lib/jasmine-2.3.4/boot.js"></script>
+    <script src="test/webapp/unit/lib/angular-1.4.4/angular-mocks.js"></script>
+
+    <!-- constants needed -->
+    <script src="public/webapp/constant/data-type.js"></script>
+    <script src="public/webapp/constant/error-message.js"></script>
+
+    <!-- app dependencies required to run tests-->
+    <script src="public/webapp/service/dal/dal.js"></script>
+    <script src="public/webapp/service/repository/repository.js"></script>
+    <script src="public/webapp/service/repository/project.js"></script>
+    <script src="public/webapp/service/sse/sseConnectionManager.js"></script>
+
+    <script src="test/webapp/unit/app.js"></script>
+
+    <!-- Features being tested -->
+    <script src="public/webapp/service/util/service-caller.js"></script>
+
+    <!-- Mocks-->
+    <script src="test/webapp/mocks/service/security/security-manager.js"></script>
+    <script src="test/mocks/service/security/auth-interceptor.js"></script>
+
+    <!--tests-->
+    <script src="test/webapp/unit/service/util/service-caller.spec.js"></script>
+</head>
+
+<body>
+</body>
+</html>

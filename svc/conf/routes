@@ -1,0 +1,34 @@
+# Routes
+# This file defines all service routes (Higher priority routes first)
+
+# NOTE***** Static content should be listed at the end of the file******
+
+# ~~~~
+
+# DYNAMIC CONTENT
+
+GET           /project                       net.atos.pamm.endpoint.ProjectsEndpoint.list()
+GET           /project/:id                   net.atos.pamm.endpoint.ProjectsEndpoint.find(id: Integer)
+POST          /project                       net.atos.pamm.endpoint.ProjectsEndpoint.create()
+PUT           /project                       net.atos.pamm.endpoint.ProjectsEndpoint.update()
+DELETE        /project/:id                   net.atos.pamm.endpoint.ProjectsEndpoint.delete(id: Integer)
+
+GET           /user/:id/project              net.atos.pamm.endpoint.UserEndpoint.findProjects(id: Integer)
+GET           /user/:id/activate/:key        net.atos.pamm.endpoint.ActivateEndpoint.activate(id: Integer, key: String)
+
+POST          /register/user                 net.atos.pamm.endpoint.RegisterEndpoint.register()
+
+GET           /login/user                    net.atos.pamm.endpoint.LoginEndpoint.login()
+
+
+GET           /sse-connection/:id            net.atos.pamm.endpoint.SSEEndpoint.createSSEConnection(id: String)
+POST          /sse-request                   net.atos.pamm.endpoint.SSEEndpoint.createSSEExampleRequest()
+
+
+#STATIC CONTENT
+
+# Home page
+GET           /                              controllers.Assets.at(path="/public/webapp", file="index.html")
+
+# Map static resources from the /public folder to the /assets URL path
+GET           /*file                         controllers.Assets.versioned(path="/public/webapp", file: Asset)

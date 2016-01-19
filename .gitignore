@@ -1,0 +1,17 @@
+.idea
+.history
+int/target/
+node_modules
+project/target
+svc/logs
+svc/target/
+svc/test/webapp/unit/test-results.xml
+svc/test/webapp/unit/reports
+svc/test/webapp/unit/node_modules
+svc/test/webapp/cucumber/node_modules
+svc/test/webapp/e2e/node_modules
+svc/test/java/integration/logs
+target/
+testsetup/logs
+testsetup/target
+test-e2e-results

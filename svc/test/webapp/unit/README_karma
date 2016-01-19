@@ -1,0 +1,29 @@
+--------------------Install nodejs------------------------
+
+OPTIONAL - If nodejs is not yet installed, then complete the following.
+
+Install nodeJS at https://nodejs.org/en/, which should give you npm access.
+
+To test that node has installed successfully, in a command window enter the following
+
+        npm
+
+
+------------------Install node module dependencies-------
+
+Open a command window at the PAMM seed root folder and enter the following
+
+        npm install
+
+Provided there are no issues with your proxy, this should install all the required dependencies defined in the
+package.json file.
+
+
+------------------Run the tests-------------------------
+
+To run the unit tests with karma, open command window at the PAMM seed root folder and enter the following command
+
+        npm run jasmine-test
+
+The test script is defined in the package.json file and executes "./node_modules/.bin/karma start"
+

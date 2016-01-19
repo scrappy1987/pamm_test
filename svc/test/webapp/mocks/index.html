@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="app">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <base href="../../public/webapp/">
+
+  <title>PAMM-UI Seed Mock</title>
+  <link rel="icon" href="resource/favicon.ico">
+
+  <!-- Libraries -->
+  <script src="lib/lodash/lodash.min.js"></script>
+  <script src="lib/jquery/jquery-2.1.4.min.js"></script>
+  <script src="lib/angular-1.4.4/angular.min.js"></script>
+  <script src="lib/ui-router/angular-ui-router.js"></script>
+  <script src="lib/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+  <link href="lib/bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="lib/bootstrap3-dialog/js/bootstrap-dialog.min.js"></script>
+  <link href="lib/bootstrap3-dialog/css/bootstrap-dialog.min.css" rel="stylesheet">
+
+  <!--Base styling-->
+  <link rel="stylesheet/less" href="resource/base.less" type="text/css"/>
+
+  <!--Constants-->
+  <script src="constant/component-state.js"></script>
+  <script src="constant/data-type.js"></script>
+  <script src="constant/error-message.js"></script>
+  <script src="constant/event.js"></script>
+
+  <!--Application-->
+  <script src="../../../svc/test/webapp/mocks/app.js"></script>
+  <script src="app-controller.js"></script>
+  <script src="app-state-manager.js"></script>
+
+  <!--Directives-->
+  <script src="directive/match.js"></script>
+
+  <!--Services-->
+  <script src="../../../svc/test/webapp/mocks/service/security/security-manager.js"></script>
+  <script src="../../../svc/test/webapp/mocks/service/security/auth-interceptor.js"></script>
+  <script src="../../../svc/test/webapp/mocks/service/dal/dal.js"></script>
+  <script src="../../../svc/test/webapp/mocks/service/dal/project.js"></script>
+  <script src="service/repository/repository.js"></script>
+  <script src="service/repository/project.js"></script>
+  <script src="service/sse/sseConnectionManager.js"></script>
+  <script src="service/util/service-caller.js"></script>
+
+  <!--Features-->
+  <script src="feature/login/login-controller.js"></script>
+  <link rel="stylesheet/less" href="feature/login/login.less" type="text/css"/>
+
+  <script src="feature/home/home-controller.js"></script>
+  <link rel="stylesheet/less" href="feature/home/home.less" type="text/css"/>
+
+  <script src="feature/dashboard/dashboard-controller.js"></script>
+  <link rel="stylesheet/less" href="feature/dashboard/dashboard.less" type="text/css"/>
+
+  <script src="feature/project/project-controller.js"></script>
+  <script src="feature/project/project-item-controller.js"></script>
+  <script src="feature/project/project-form-controller.js"></script>
+  <link rel="stylesheet/less" href="feature/project/project.less" type="text/css"/>
+
+  <!--LESS pre-processor - needs to be last -->
+  <script src="lib/less/less.min.js"></script>
+</head>
+<body data-ui-view="content" data-ng-controller="appController">
+</body>
+</html>

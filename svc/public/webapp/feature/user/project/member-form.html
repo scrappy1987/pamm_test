@@ -1,0 +1,20 @@
+<form name="memberForm" data-ng-submit="addMemberToProject(memberForm)" method="post" novalidate>
+  <div class="modal-header">
+    <h2>Add Project Member</h2>
+  </div>
+  <div class="modal-body">
+    <div class='form-group'>
+      <label class="required" for="email">Email</label>
+      <input type="email" class="form-control" data-ng-model="member.email"
+             placeholder="Email of the new project member" id="email" name="email" data-lowercase required autofocus>
+      <div data-ng-messages="memberForm.email.$error" data-ng-if="memberForm.$submitted" role="alert">
+        <div data-ng-message="required">Please enter the project member email</div>
+        <div data-ng-message="email">Please correct the entered email</div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-cancel" type="button" data-ng-click="cancel()">Cancel</button>
+    <button class="btn btn-primary" type="submit">Add</button>
+  </div>
+</form>

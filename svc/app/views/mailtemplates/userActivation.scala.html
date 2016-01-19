@@ -1,0 +1,25 @@
+@import net.atos.pamm.domain.user.model.User
+@(user: User, baseUrl: String)
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </head>
+    <body>
+        <p>
+            Dear @user.getForename
+        </p>
+        <p>
+            Your account has been created, please click on the URL below to activate it:
+        </p>
+        <p>
+            <a href="@baseUrl/user/@user.getId/activate/@user.getActivationKey">Activation Link</a>
+        </p>
+        <p>
+            <span>Regards, </span>
+            <br/>
+            <em>PAMM</em>
+        </p>
+    </body>
+</html>

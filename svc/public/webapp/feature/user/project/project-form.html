@@ -1,0 +1,69 @@
+<form name="projectForm" data-ng-controller="projectFormCtrl" class="container-fluid"
+      data-ng-submit="saveProject(projectForm)" method="post" novalidate="novalidate">
+  <h1 class="row">{{headingText}}</h1>
+  <div class="row">
+    <div class="col-md-6">
+      <div class='form-group'>
+        <label for="title" class="required">Title</label>
+        <input type="text" class="form-control" data-ng-model="project.title" minlength="5"
+               placeholder="Project Title" id="title" name="title" required autofocus>
+        <div data-ng-messages="projectForm.title.$error" data-ng-if="projectForm.$submitted" role="alert">
+          <div data-ng-message="required">Please enter a title for your project</div>
+          <div data-ng-message="minlength">Please enter a more descriptive title of at least 5 characters</div>
+        </div>
+      </div>
+
+      <div class='form-group'>
+        <label for="projectCode" class="required">Project Code</label>
+        <input type="text" class="form-control" data-ng-model="project.projectCode"
+               placeholder="The code for this project" id="projectCode" name="projectCode" required>
+        <div data-ng-messages="projectForm.projectCode.$error" data-ng-if="projectForm.$submitted" role="alert">
+          <div data-ng-message="required">Please enter the code for this project</div>
+        </div>
+      </div>
+
+      <div class='form-group'>
+        <label for="Client">Client</label>
+        <input type="text" class="form-control" data-ng-model="project.client"
+               placeholder="The clent for this project" id="client">
+      </div>
+
+      <div class='form-group'>
+        <label for="summary" class="required">Summary</label>
+        <textarea class="form-control" rows="3" data-ng-model="project.summary"
+                  placeholder="Enter a brief description for the project" id="summary" name="summary" required>
+        </textarea>
+        <div data-ng-messages="projectForm.summary.$error" data-ng-if="projectForm.$submitted" role="alert">
+          <div data-ng-message="required">Please enter a summary for your project</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div>
+        <label>Project Members</label>
+        <button type="button" class="btn btn-default btn-xs pull-right" title="Add a project team member" data-ng-click="addMember()">
+          <i class="icon add small"></i>Add project Member
+        </button>
+      </div>
+      <div class="list-group">
+        <div class="list-group-item"
+             data-ng-repeat="member in project.members|filter: {sessionStatus: '!REMOVED'}|orderBy:'email' track by $index">
+          {{member.forename}}&nbsp;{{member.surname}}&nbsp;<{{member.email}}>
+          <a class="fa fa-close pull-right" title="Remove this member from the project" data-ng-click="removeMember(member)"></a>
+        </div>
+      </div>
+
+      <div class="alert alert-info" data-ng-if="!hasMembers()">
+        There are currently no project team members
+      </div>
+    </div>
+  </div>
+
+  <footer class="row">
+    <div class="pull-right">
+      <button type="button" data-ng-click="cancel()" class="btn btn-cancel">Cancel</button>
+      <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+  </footer>
+</form>

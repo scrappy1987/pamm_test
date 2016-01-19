@@ -1,0 +1,118 @@
+********************PRE REQUISITES****************************
+
+
+--------------------1. Install nodejs-------------------------
+
+Install nodeJS at https://nodejs.org/en/, which should give you npm access.
+
+To test that node has installed successfully, in a command window enter the following
+
+        npm
+
+The npm command should run successfully.
+
+
+------------------2. Install node module dependencies-------
+
+Open a command window at the PAMM seed root folder and enter the following
+
+        npm install
+
+Provided there are no issues with your proxy, this should install all the required dependencies defined in the
+package.json file.
+
+
+NOTE: When installing protractor some errors are displayed, but do not seem to affect the installation.
+
+
+--------------------3 Update webdriver manager-------------
+
+The following instructions will update the webdriver-manager package.
+
+Open a command window at the PAMM seed root folder and enter the following command.
+
+        npm run webdriver-update
+
+Provided there are no issues with the proxy, the webdriver-manager globably should update successfully.
+
+
+********************RUNNING PROTRACTOR TESTS*******************
+
+-------------Run Protractor Tests from Sbt Task----------------
+
+To run the Protractor tests open a command window at the PAMM seed root folder and 
+enter the following command
+
+        activator svc/endToEndTest
+
+This will perform the following steps to run the protractor tests 
+
+NOTE - The following steps will be run automatically as part of the above command and are 
+       provided for information. They do not need to be invoked manually for the Protractor 
+       tests to be run.
+
+
+-----------------Step 1 - Start a Selenium Server instance-------
+
+The webdriver-manager is a helper tool to easily get an instance of a Selenium Server running.
+
+Use it to download the necessary binaries with the following command:
+
+        npm run webdriver-update
+
+Start a Selenium server instance with the following command
+
+        npm run selenium-start
+
+You can see information about the server status by accessing
+
+        http://localhost:4444/wd/hub
+
+
+
+-----------------Step 2 - Start an H2 database instance--------
+
+The H2 database is accesssed by the svc project application and the testsetup project application
+
+This is started by running the following command
+
+        javaw -cp %HOMEPATH%\.ivy2\cache\com.h2database\h2\jars\h2-1.4.187.jar org.h2.tools.Server
+
+This will run on port 8082 of the local machine
+
+
+
+-----------------Step 3 - Run testsetup application----------
+
+This Play application provides a RESTful API to run SQL scripts to setup data for each of the protractor tests (if required).
+To run the testsetup Play application,  open a command window at your project root folder (pamm.seed) and enter the following
+
+        activator testsetup/run 9001
+
+The testsetup application should now be running on port 9001. 
+
+
+------------------Step 4 - Run svc application--------------
+
+This is the Angular / Play application which is the main application of the seed. To run the svc Play application,  open a command window 
+at your project root folder (pamm.seed) and enter the following
+
+        activator svc/run
+
+The svc application should now be running on port 9000. 
+
+
+----------------Step 5 - Run the protractor test------------
+
+From the PAMM seed root directory run the following command
+
+        npm run e2e_cucumber_test
+
+This will now invoke the tests configured in the cucumberOpts "require" property of the conf.js file 
+
+
+----------------------For more information------------------
+
+The following link provides more information about running protractor tests
+
+    https://angular.github.io/protractor/#/tutorial
